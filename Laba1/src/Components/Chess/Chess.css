@@ -1,0 +1,33 @@
+* {
+    box-sizing : border-box;
+}
+
+table {
+    border-collapse : collapse;
+}
+
+.cell {
+    width  : 60px;
+    height : 60px;
+
+}
+
+.chessCell {
+    border : solid black 1px;
+}
+
+.Even {
+    background-color : #cd7811;
+}
+
+.Odd {
+    background-color : rgba(205, 170, 82, 0.51);
+}
+
+.note {
+    text-align  : center;
+    font-style  : italic;
+    font-weight : bold;
+    font-size   : 25px;
+    color       : #cda33c;
+}
