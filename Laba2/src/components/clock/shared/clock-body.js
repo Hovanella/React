@@ -98,4 +98,5 @@ export class ClockBody extends React.Component {
       return <div>{this.getTime()}</div>;
     }
   }
+
 }

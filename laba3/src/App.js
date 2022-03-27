@@ -1,8 +1,12 @@
 import {SortTable} from "./Components/SortTable/SortTable";
+import {PhoneInput} from "./Components/PhoneInput/PhoneInput";
 
 function App() {
   return (
+      <>
+      <PhoneInput/>
       <SortTable/>
+      </>
   );
 }
 

@@ -1,0 +1,12 @@
+.NotCurrentMounthDate{
+    opacity: 0.2;
+
+}
+.selectedDate{
+   background-color: #B6CDF0;
+}
+
+.todayDate
+{
+    background-color: rgba(185, 186, 193,1);
+}

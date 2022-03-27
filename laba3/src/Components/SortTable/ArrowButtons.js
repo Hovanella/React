@@ -12,7 +12,7 @@ export class ArrowButtons extends react.Component {
 
     render() {
        return (
-           <div className="arrows">
+           <div className="arrows" >
                <button onClick={this.onClickHandler.bind(this,"ascending")} className="arrow-button">
                    <div className="arrow arrow-top"/>
                </button>
