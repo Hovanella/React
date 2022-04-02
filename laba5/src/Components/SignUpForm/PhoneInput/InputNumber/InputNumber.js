@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 
-const  InputNumber = ({numbers,id,setId}) => {
+const InputNumber = ({numbers, id, setId, ChangePhone}) => {
 
 
-    const [number,setNumber] = useState(numbers[0])
+    const [number, setNumber] = useState(numbers[0])
     const [value, setValue] = useState("")
+    const [inputStyle, setInputStyle] = useState('input');
 
     useEffect(() => {
         setNumber(numbers[id - 1])
@@ -12,11 +13,11 @@ const  InputNumber = ({numbers,id,setId}) => {
 
     const inputNumber = (e) => {
         numbers.forEach(el => {
-                if (el.code.length <=value.length && el.count >= value.length)
-                if (value.slice(0,el.code.length) === el.code) {
-                    setNumber(el)
-                    setId(el.id)
-                }
+                if (el.code.length <= value.length && el.count >= value.length)
+                    if (value.slice(0, el.code.length) === el.code) {
+                        setNumber(el)
+                        setId(el.id)
+                    }
             }
         )
         setValue(e.target.value.split(/[ \-()]/).join(""))
@@ -32,13 +33,23 @@ const  InputNumber = ({numbers,id,setId}) => {
                 }
             let num = maskArr.join("");
             setValue(num);
+            ChangePhone(true, num);
+            setInputStyle('input ValidInput')
+        } else {
+            ChangePhone(false);
+            if (value.length === 0) {
+                setInputStyle('input')
+            } else {
+                setInputStyle('input InvalidInput')
+            }
         }
+
     }
 
 
     return (
         <div className="inputWrapper">
-            <input className="input" type="tel" id="phone" name="phone"
+            <input className={inputStyle} type="tel" id="phone" name="phone"
                    placeholder={number.code + number.mask.slice(4)}
                    required onInput={inputNumber} maxLength={number.count + 3}
                    value={value}/>

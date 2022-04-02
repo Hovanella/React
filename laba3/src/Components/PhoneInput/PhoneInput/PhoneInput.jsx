@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import SwitchFlag from "./SwitchFlag";
-import {OperatorsButtonList} from "./OperatorsButtonList";
-import InputNumber from "./InputNumber/InputNumber";
-import {NumberFormats} from "./NumberFormats";
+import SwitchFlag from "../SwitchFlag";
+import {OperatorsButtonList} from "../OperatorsButtonList";
+import InputNumber from "../InputNumber/InputNumber";
+import {NumberFormats} from "../NumberFormats";
 import "./PhoneInput.css";
 
 export const PhoneInput = () => {
@@ -13,9 +13,9 @@ export const PhoneInput = () => {
     return (
         <div className="container">
             <div className="phoneInput">
-                <label>Input phone</label>
+
                 <div className="content">
-                    <InputNumber numbers={NumberFormats} id={id} setId={setId} onChange={()=>setId(this.number)}/>
+                    <InputNumber numbers={NumberFormats} id={id} setId={setId} />
                     <SwitchFlag id={id}/>
                 </div>
             </div>

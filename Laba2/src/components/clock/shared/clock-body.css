@@ -1,0 +1,134 @@
+
+
+#clock{
+    width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clock{
+  width: 100%;
+  height: 100%;
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.html,body{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+    position:relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+.kursach{
+
+  width: 100%;
+    height: 450px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+    background-color: #cd7811;
+}
+.kursachHeader{
+    text-align: center;
+    font-size:165px;
+    color: red;
+    animation: flash 0.3s infinite;
+}
+@keyframes flash{
+    0%{
+        color: red;
+    }
+    50%{
+        color: white;
+    }
+    100%{
+        color: red;
+    }
+}
+
+
+
+.days{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 85px;
+    font-weight: bold;
+  width: 100%;
+    height: 100%;
+    background-color: red;
+    animation: flash3 0.1s infinite;
+}
+.hours{
+    font-size: 85px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    animation: flash2 0.2s infinite;
+}
+.minutes{
+    font-size: 85px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+        background-color: red;
+    animation: flash3 0.3s infinite;
+    }
+.seconds{
+    font-size: 76px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    animation: flash2 0.4s infinite;
+}
+
+@keyframes flash2{
+    0%{
+        color: black;
+    }
+    50%{
+        color: white;
+    }
+    100%{
+        color: black;
+    }
+}
+@keyframes flash3{
+    0%{
+        color: black;
+    }
+    50%{
+        color:red;
+    }
+    100%{
+        color: black;
+    }
+}
+*{
+    font-family    : 'Amatic SC', serif;
+    overflow-y     : hidden;
+    padding        : 0;
+    margin         : 0;
+    box-sizing : border-box;
+}

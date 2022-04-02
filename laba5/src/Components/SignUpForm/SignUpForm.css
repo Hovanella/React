@@ -1,0 +1,73 @@
+.signUpForm{
+  opacity: 0.8;
+  max-width: 380px;
+  height : 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px  solid black;
+  box-shadow: 0px 0px 10px black;
+
+    background-image: linear-gradient(225deg, #147bff 0, #5e73fa 8.33%, #826bf1 16.67%, #9d61e6 25%, #b357d9 33.33%, #c54dcb 41.67%, #d442bc 50%, #e037ac 58.33%, #e82e9b 66.67%, #ee278a 75%, #f22579 83.33%, #f32868 91.67%, #f22f57 100%);
+
+
+
+}
+
+
+
+/* Поля формы*/
+
+.formField{
+  width: 100%;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
+   }
+.email {
+}
+
+
+.signUpForm label{
+  width : 120px;
+  display: block;
+}
+
+.result_button{
+  margin-bottom: 10px;
+}
+
+.SexWrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.Sex{
+  display: flex;
+  flex-direction: row;
+
+}
+.DateInputWrap{
+ margin-right: 28px;
+}
+
+.ValidInput{
+  background: #EFF5FF;
+  outline: solid 3px #2ecd54;
+  outline-offset: -2px;
+  border-radius: 5px;
+}
+.InvalidInput{
+  background: #EFF5FF;
+  outline: solid 3px red ;
+  outline-offset: -2px;
+  border-radius: 5px;
+}

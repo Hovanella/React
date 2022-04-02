@@ -1,5 +1,7 @@
 import React from "react";
 
+var DEADLINE = new Date("2022-05-20");
+
 export class ClockBody extends React.Component {
   constructor(props) {
     super(props);
@@ -28,7 +30,7 @@ export class ClockBody extends React.Component {
     if (+minutes > 59) return false;
     if (+hours > 14 || +hours < -12) return false;
 
-    //TODO доделать проверку
+
   };
 
   getTime = () => {
@@ -74,9 +76,20 @@ export class ClockBody extends React.Component {
 
     seconds = this.state.date.getSeconds();
 
-    return `${hours < 10 ? "0" + hours : hours} : ${
+    /*return `${hours < 10 ? "0" + hours : hours} : ${
       minutes < 10 ? "0" + minutes : minutes
-    } : ${seconds < 10 ? "0" + seconds : seconds} ${intervals}`;
+    } : ${seconds < 10 ? "0" + seconds : seconds} ${intervals}`;*/
+
+
+    let date = DEADLINE-this.state.date;
+    let kursachdays = Math.floor(date / (1000 * 60 * 60 * 24));
+    let kursachHours = Math.floor((date % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let kursachMinutes = Math.floor((date % (1000 * 60 * 60)) / (1000 * 60));
+    let kursachSeconds = Math.floor((date % (1000 * 60)) / 1000);
+
+    return `${kursachdays} ДНЕЙ : ${kursachHours} ЧАСОВ : ${kursachMinutes} МИНУТ : ${kursachSeconds} СЕКУНД`;
+
+
   };
 
   componentDidMount() {
@@ -92,10 +105,28 @@ export class ClockBody extends React.Component {
   }
 
   render() {
+
+    let timeString = this.getTime().split(":");
+
+    let days = timeString[0];
+    let hours = timeString[1];
+    let minutes = timeString[2];
+    let seconds = timeString[3];
+
     if (this.checkProperties() === false)
       return <div>Incorrect properties</div>;
     else {
-      return <div>{this.getTime()}</div>;
+      return (
+          <>
+          <span className="kursachHeader">ДО СДАЧИ КУРСАЧА</span>
+          <div className="kursach">
+            <div className="days">{days}</div>
+            <div className="hours">{hours}</div>
+            <div className="minutes">{minutes}</div>
+            <div className="seconds">{seconds}</div>
+          </div>
+          </>
+    );
     }
   }
 
