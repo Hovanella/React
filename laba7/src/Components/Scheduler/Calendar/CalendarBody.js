@@ -1,6 +1,7 @@
 import React from "react";
+import "./CalendarBody.css";
 
-export const CalendarBody = ({date, setSelectedDays, selectedDays,notes}) => {
+export const CalendarBody = ({date, setSelectedDays, selectedDays,notes,noteDate}) => {
 
     const currentDate = new Date();
 
@@ -29,10 +30,12 @@ export const CalendarBody = ({date, setSelectedDays, selectedDays,notes}) => {
             return "NotCurrentMounthDate";
 
 
-        for (let i = 0; i < notes.length; i++) {
-            if (notes[i].date === weekDate.toLocaleDateString())
-                 return "selectedNoteDay" ;
-        }
+            if (noteDate !==null &&
+                noteDate.getDate() === weekDate.getDate() &&
+                noteDate.getMonth() === weekDate.getMonth() &&
+                noteDate.getFullYear() === weekDate.getFullYear() )
+                 return "selectedNoteDay";
+
 
         for (let i = 0; i < selectedDays.length; i++) {
             if (

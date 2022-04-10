@@ -120,7 +120,38 @@ export function SignUpForm() {
             phone: phone,
             birthday: birthday
         };
-       console.table(registerData)
+        console.table(registerData);
+
+
+
+
+        const data = JSON.stringify(registerData);
+        const dataFile = new Blob([data], {type: 'application/json'});
+        const fileName = 'user.json';
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(dataFile);
+        a.download = fileName;
+        a.click();
+
+        //send data to server
+        fetch('http://localhost:3001/register', {
+            method: 'POST',
+            body: JSON.stringify(registerData),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => {
+                if (response.status === 200) {
+                    alert('Вы успешно зарегистрировались');
+                    window.location.href = '/login';
+                } else {
+                    alert('Ошибка регистрации');
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            });
 
 
 
