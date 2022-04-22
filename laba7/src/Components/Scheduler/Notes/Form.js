@@ -18,15 +18,21 @@ export function Form({notes, setNotes, date}) {
     }
 
     const deleteFirstNoteButtonHandler = (e) => {
-        const noteToDelete = notes.find(note => note.noteDate.valueOf() === date.valueOf());
+        const noteToDelete = notes.findIndex(note => note.noteDate.valueOf() === date.valueOf());
         //remove according to title and description
-        setNotes(notes.filter(note => note.noteDate.valueOf() !== date.valueOf() || note.noteTitle !== noteToDelete.noteTitle || note.noteDesc !== noteToDelete.noteDesc));
+
+        setNotes(notes.filter((note, index) => index !== noteToDelete));
+
         
     }
     const deleteLastNoteButtonHandler = (e) => {
-        const noteToDelete = notes.reverse().find(note => note.noteDate.valueOf() === date.valueOf());
-        //remove according to title and description
-        setNotes(notes.filter(note => note.noteDate.valueOf() !== date.valueOf() || note.noteTitle !== noteToDelete.noteTitle || note.noteDesc !== noteToDelete.noteDesc));
+        let arr = [...notes];
+
+       arr.reverse();
+        const noteToDelete = arr.length-1 - arr.findIndex(note => note.noteDate.valueOf() === date.valueOf());
+
+      //remove according to title and description
+        setNotes(notes.filter((note, index) => index !== noteToDelete));
     }
 
 
