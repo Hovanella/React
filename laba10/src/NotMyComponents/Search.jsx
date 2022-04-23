@@ -1,4 +1,5 @@
 import React from "react";
+import "./";
 export class Search extends React.Component {
   onChange = (e) => {
     this.setState(() => this.props.search(e.target.value));

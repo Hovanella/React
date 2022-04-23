@@ -4,6 +4,9 @@ import {OperatorsButtonList} from "../OperatorsButtons/OperatorsButtonList";
 import InputNumber from "../InputNumber/InputNumber";
 import {NumberFormats} from "../NumberFormats";
 import "./PhoneInput.css";
+import PropTypes from "prop-types";
+
+
 
 export const PhoneInput = ({IsPhoneInputValid}) => {
 
@@ -27,7 +30,7 @@ export const PhoneInput = ({IsPhoneInputValid}) => {
                 <label>Страна</label>
                 <select id="select" className="countrySelect_select" onChange={e => setId(+e.target.value)} style={{borderRadius: "5px"}}>
                     {NumberFormats.map(item =>
-                        <option key={item.id} value={item.id} selected={id === item.id}>
+                        <option key={item.id} value={item.id} defaultValue={id === item.id}>
                             {item.name}
                         </option>
                     )}
@@ -40,3 +43,6 @@ export const PhoneInput = ({IsPhoneInputValid}) => {
 };
 
 
+PhoneInput.propTypes = {
+    IsPhoneInputValid: PropTypes.func.isRequired
+};

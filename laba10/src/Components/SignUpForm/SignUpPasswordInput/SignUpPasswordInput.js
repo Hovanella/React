@@ -1,5 +1,11 @@
 import {useEffect, useState} from "react";
 import {ProgressBar} from "./ProgressBar";
+import PropTypes from "prop-types";
+
+SignUpPasswordInput.propTypes = {
+    IsPasswordValid: PropTypes.func.isRequired
+};
+
 
 export function SignUpPasswordInput({IsPasswordValid}) {
 

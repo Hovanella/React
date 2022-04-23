@@ -1,35 +1,102 @@
-input {
-  display: block;
-}
-body,html {
-
-  width : 100%;
-
-  margin: 0;
-  padding : 0;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+    margin  : 0;
+    padding : 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.one_good {
+    min-width: 300px;
+    background : aliceblue;
+    border     : 1px solid black;
+    display: grid;
+    padding    : 0;
 }
-html{
-  min-height: 100% ;
-  min-width: 100% ;
-  background: linear-gradient(225deg, #147bff 0, #5e73fa 8.33%, #826bf1 16.67%, #9d61e6 25%, #b357d9 33.33%, #c54dcb 41.67%, #d442bc 50%, #e037ac 58.33%, #e82e9b 66.67%, #ee278a 75%, #f22579 83.33%, #f32868 91.67%, #f22f57 100%);
-
-
-
-}
-#root{
-
-  width : 100%;
-  height : 100%;
+.wrapper{
+    display: flex;
+    flex-direction: row;
 }
 
+.goods {
+    width                 : 100%;
+    display               : grid;
+    grid-template-columns : repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 1.4em;
+}
+
+.one_good img {
+    height       : 200px;
+    margin-right : 10px;
+}
+
+.text {
+    max-height: 50px;
+    margin  : 0;
+    padding : 1em;
+}
+
+.sorts {
+    width      : 100%;
+    height: 50px;
+}
+
+.sorts button {
+    background-color : #609edf;
+    border           : none;
+    color            : white;
+    height : 100%;
+    width: 25%;
+    text-align       : center;
+    text-decoration  : none;
+    display          : inline-block;
+    font-size        : 16px;
+    transition       : all 0.3s;
+}
+
+.sorts button:hover {
+    cursor           : pointer;
+    background-color : rgba(6, 85, 138, 0.95)
+}
+
+.discount h2 {
+    display          : inline-block;
+    width            : 50px;
+    height           : 40px;
+    font-style: italic;
+    text-align       : center;
+}
+
+.discount h2 + h2 {
+    margin : 7px;
+}
+
+.prices {
+    display : flex;
+}
+
+.prices h3 {
+    color           : rgb(83, 83, 83);
+    margin-left     : 10px;
+    text-decoration : line-through;
+}
+.new{
+    color: white;
+    animation: neww 0.5s ease-in-out infinite;
+
+    font-style: italic;
+}
+@keyframes neww {
+    0%{
+        color: white;
+    }
+    100%{
+        color: red;
+    }
+}
+
+.description{
+    display: block;
+}
+.description-text{
+    display: block;
+    margin-top: 3px;
+    word-break: break-word;
+}

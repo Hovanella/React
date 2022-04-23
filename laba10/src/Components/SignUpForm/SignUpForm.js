@@ -2,6 +2,8 @@ import {SignUpEmailInput} from "./SignUpEmailInput";
 import {SignUpPasswordInput} from "./SignUpPasswordInput/SignUpPasswordInput";
 import {PhoneInput} from "./PhoneInput/PhoneInput/PhoneInput";
 import React, {useEffect, useState} from "react";
+import PropTypes from "prop-types";
+
 
 export function SignUpForm() {
 
@@ -123,8 +125,6 @@ export function SignUpForm() {
         console.table(registerData);
 
 
-
-
         const data = JSON.stringify(registerData);
         const dataFile = new Blob([data], {type: 'application/json'});
         const fileName = 'user.json';
@@ -152,7 +152,6 @@ export function SignUpForm() {
             .catch(error => {
                 console.log(error);
             });
-
 
 
     }
@@ -183,7 +182,7 @@ export function SignUpForm() {
 
                 <div className="SexWrap">
                     <div className="Sex">
-                        <input type="radio" name="gender" value="male" checked="true"/>
+                        <input type="radio" name="gender" value="male" defaultChecked={true}/>
                         <label>Мужчина</label>
                     </div>
                     <div className="Sex">

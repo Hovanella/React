@@ -1,6 +1,10 @@
 import {useState} from "react";
+import PropTypes from "prop-types";
+import React from "react";
 
 export function SignUpEmailInput({IsEmailValid}) {
+
+
 
     const [email, setEmail] = useState('');
     const [isEmailValid, setIsEmailValid] = useState(false);
@@ -33,3 +37,6 @@ export function SignUpEmailInput({IsEmailValid}) {
         </div>
     );
 }
+SignUpEmailInput.propTypes = {
+    IsEmailValid: PropTypes.func.isRequired
+};

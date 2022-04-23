@@ -35,7 +35,7 @@ export const OperatorsButtonList = ({numberFormats, id}) => {
             {currentFormat.operators.map(operator => (
                 <>
                 <div className="operator">
-                    <input checked='false'  type={"radio"} value={operator} name="operator"/>
+                    <input defaultChecked={true}  type={"radio"} value={operator} name="operator"/>
                 </div>
                     <label className="operatorLabel">{operator}</label>
                 </>

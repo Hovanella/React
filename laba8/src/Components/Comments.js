@@ -38,6 +38,32 @@ export class Comments extends Component {
             delete: null,
             edit: null,
             info: null,
+            isSubmitButtonAvailable: false
+        };
+        this.state = {
+            img: NoAvatarPicture,
+            comments: [
+                {
+                    name: "name1",
+                    avatar: catPicture,
+                    email: "w@mail.ru",
+                    message: "message1",
+                    secretWord: "q",
+                    date: new Date(),
+                },
+                {
+                    name: "name2",
+                    avatar: catPicture,
+                    email: "w@mail.ru",
+                    message: "dsfndkdjnfdslfngdkjgnsdklfnsafndgjkdsfnfgjsaknslkfnerjkgfnfkadsjlfnaklfndlskngvdsklvndlkvndsklgnsdklfndsfkldsnfdsklfnwklfnonvdklbvndvlkb",
+                    secretWord: "w",
+                    date: new Date(),
+                },
+            ],
+            delete: null,
+            edit: null,
+            info: null,
+
         };
     }
 
@@ -65,6 +91,12 @@ export class Comments extends Component {
     ];
     onSubmit = (e) => {
         e.preventDefault();
+
+        if ((this.name.value && this.email.value && this.message.value && this.secretWord.value) ===""){
+            alert("Не все поля заполнены");
+            return;
+        }
+
         let comment = {
             name: this.name.value,
             avatar: this.state.img,
@@ -83,6 +115,7 @@ export class Comments extends Component {
         this.secretWord.value = null;
 
     };
+
 
     comments() {
         return this.state.comments.map((comment, index) => {
@@ -223,7 +256,7 @@ export class Comments extends Component {
                         type="text"
                         placeholder="Секретное слово"
                     />
-                    <input type="submit" value="Отправить"/>
+                    <input  type="submit" value="Отправить"/>
                 </form>
                 <ul className="comment-wrapper">
                     {this.comments()}

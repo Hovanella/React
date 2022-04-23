@@ -1,14 +1,11 @@
-import React from 'react'
-import { Catalog } from './Catalog'
-import "./index.css"
+
 import {SignUpForm} from "./Components/SignUpForm/SignUpForm";
+import {Catalog} from "./Components/Catalog/Catalog";
 
 function App() {
   return (
-<>
-<SignUpForm />
-<Catalog />
-</>
+/*  <SignUpForm />*/
+      <Catalog></Catalog>
   );
 }
 

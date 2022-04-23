@@ -1,12 +1,16 @@
-import {SortTable} from "./Components/SortTable/SortTable";
+import {SortTable} from "./SortTable/SortTable";
 import React, {useRef, useState} from "react";
-import {content} from "./Components/SortTable/Content";
+import {content} from "./SortTable/Content";
+import {Search} from "./Search/Search";
 
 export const Catalog = () => {
 
 
     const [array, setArray] = useState(content);
+    const [search, setSearch] = useState('');
     const [sorted, setSorted] = useState({name: true, price: true, inStock: true, discount: true});
+    const [searchParameter, setSearchParameter] = useState('partial');
+
 
 
     const sort = (byWhat) => {
@@ -44,10 +48,31 @@ export const Catalog = () => {
         );
     }
     const goods = () => {
-        return array.map((item) => {
-            return (
-                <div className="one_good">
-                    <div className="wrapper">
+
+        return array
+            .filter((item) => {
+                if (!search) return item;
+                switch (searchParameter) {
+                    case "partial":
+                        if (
+                            item.name.toLowerCase().includes(search.toLowerCase())
+                        ) {
+                            return item;
+                        }
+                        break;
+                    case "full":
+                        if (item.name.toLowerCase() === search.toLowerCase()) {
+                            return item;
+                        }
+                        break;
+                    default:
+                        return item;
+                }
+            })
+            .map((item) => {
+                return (
+                    <div className="one_good">
+                        <div className="wrapper">
                         <img src={item.img} alt=""/>
                         <div className="text">
                             <h2>{item.name}</h2>
@@ -57,21 +82,22 @@ export const Catalog = () => {
                                 <h3>{item.price}$</h3>
                             </div>
                             <h3>{item.inStock} items</h3>
+
                         </div>
+                        </div>
+                        <div className="description"><h3>Description:</h3><span className="description-text">{item.desc}</span></div>
                     </div>
-                    <div className="description"><h3>Description:</h3><span className="description-text">{item.desc}</span></div>
-                </div>
-            );
-        });
+                );
+            });
     }
 
     return (
         <>
             {sorts()}
+            <Search search={setSearch} searchParameter={setSearchParameter} />
             <div className="goods">
                 {goods()}
             </div>
-            <SortTable content={array}/>
         </>
     );
 }
